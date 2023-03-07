@@ -1,0 +1,31 @@
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid rgb(83, 186, 186);
+    border-radius: 5px;
+    margin: 2rem;
+}
+
+.formulario div{
+    padding: 1rem;
+}
+
+.formulario select{
+    margin: 1rem;
+}
+
+.formulario button{
+    background-color: rgb(100, 212, 212);
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid rgb(36, 79, 181);
+    border-radius: 5px;
+    margin: 2rem
+}

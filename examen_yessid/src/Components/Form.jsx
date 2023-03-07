@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import './styles.css'
 import Card from './Card'
+
 
 const Form = () => {
     const [user, setUser] = useState({
@@ -24,13 +26,19 @@ const Form = () => {
 
   return (
     <div> 
-        <form onSubmit={handleSubmit}>
-            <label>Nombre completo</label>
-            <input type="text" value={user.nombre} onChange={(e) => setUser({...user, nombre: e.target.value})}/>
-            <label>Obra social</label>
-            <input type="text" value={user.obraSocial} onChange={(e) => setUser({...user, obraSocial: e.target.value})}/>
-            <label>Email</label>
-            <input type="email" value={user.email} onChange={(e) => setUser({...user, email: e.target.value})}/>
+        <form onSubmit={handleSubmit} className='formulario'>
+            <div>
+                <label>Nombre completo: </label>
+                <input type="text" value={user.nombre} onChange={(e) => setUser({...user, nombre: e.target.value})}/>
+            </div>
+            <div>
+                <label>Obra social: </label>
+                <input type="text" value={user.obraSocial} onChange={(e) => setUser({...user, obraSocial: e.target.value})}/>
+            </div>
+            <div>
+                <label>Email: </label>
+                <input type="email" value={user.email} onChange={(e) => setUser({...user, email: e.target.value})}/>
+            </div>
 
             <select value={user.medico} onChange={(e) => setUser({...user, medico: e.target.value})}>
                 <option value="">Seleccione una respuesta</option>
