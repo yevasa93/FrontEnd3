@@ -8,6 +8,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>QUE QUIERES ESTUDIAR</h1>
       <Form></Form>
     </div>
   )

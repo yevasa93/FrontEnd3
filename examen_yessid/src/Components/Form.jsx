@@ -6,16 +6,17 @@ import Card from './Card'
 const Form = () => {
     const [user, setUser] = useState({
         nombre: '',
-        obraSocial: '',
-        email: '',
-        medico: ''
+        universidad: '',
+        carrera: ''
     })
     const [show, setShow] = useState(false)
     const [err, setErr] = useState(false)
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        if(user.nombre.length > 8 && user.medico !== ''){
+        if(user.nombre.length >= 3 && user.nombre.split('')[0] !== " " &&
+            user.universidad.length >= 6 &&
+            user.carrera !== ''){
             setShow(true)
             setErr(false)
         } else {
@@ -32,24 +33,23 @@ const Form = () => {
                 <input type="text" value={user.nombre} onChange={(e) => setUser({...user, nombre: e.target.value})}/>
             </div>
             <div>
-                <label>Obra social: </label>
-                <input type="text" value={user.obraSocial} onChange={(e) => setUser({...user, obraSocial: e.target.value})}/>
-            </div>
-            <div>
-                <label>Email: </label>
-                <input type="email" value={user.email} onChange={(e) => setUser({...user, email: e.target.value})}/>
+                <label>Universidad: </label>
+                <input type="text" value={user.universidad} onChange={(e) => setUser({...user, universidad: e.target.value})}/>
             </div>
 
-            <select value={user.medico} onChange={(e) => setUser({...user, medico: e.target.value})}>
-                <option value="">Seleccione una respuesta</option>
-                <option value="Dermatologo">Dermatólogo</option>
-                <option value="Otorrinolaringologo">Otorrinolaringólogo</option>
-                <option value="Cardiologo">Cardiólogo</option>
-            </select>
+            <div>
+                <p>Cual rama de la programacion te interesa:</p>
+                <select value={user.carrera} onChange={(e) => setUser({...user, carrera: e.target.value})}>
+                    <option value="">Seleccione una respuesta</option>
+                    <option value="Front">Front</option>
+                    <option value="Back">Back</option>
+                    <option value="DevOps">DevOps</option>
+                </select>
+            </div>
             <button>Enviar</button>
         </form>
-        {err ? 'No ha colocado la información correcta' : null}
-        {show && <Card nombre={user.nombre} medico={user.medico} />}
+        {err ? 'Por favor chequea que la información sea correcta' : null}
+        {show && <Card nombre={user.nombre} universidad={user.universidad} carrera={user.carrera} />}
         
 
     </div>

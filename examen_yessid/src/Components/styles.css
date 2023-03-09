@@ -20,6 +20,10 @@
     background-color: rgb(100, 212, 212);
 }
 
+p{
+    margin:0
+}
+
 .card{
     display: flex;
     flex-direction: column;
@@ -28,4 +32,9 @@
     border: 1px solid rgb(36, 79, 181);
     border-radius: 5px;
     margin: 2rem
+}
+
+.imagen{
+    height: 10rem;
+    width: 15rem;
 }
