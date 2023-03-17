@@ -12,10 +12,21 @@ const Comentario = () => {
 
     //fetch dentro de use effect para que lo haga una sola vez
     //antes de el setdata hacer console log para ver que contiene
+    // useEffect(() => {
+    //     fetch(url)
+    //     .then(res => res.json())
+    //     .then(data => setdata(data))     
+    // }, [])
+
+    //tambien se puede usar con async, que es otra forma usar asincronismo
     useEffect(() => {
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setdata(data))     
+        const fetchData = async () => {
+            let response = await fetch(url)
+            let dataOk = await response.json()
+            console.log(dataOk)
+            setdata(dataOk)    
+        }
+        fetchData()
     }, [])
 
     //el if lo hago porque al inicio data esta vacio y asi evito que no me
